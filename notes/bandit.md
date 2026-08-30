@@ -35,7 +35,14 @@
     > sends a command's output into a file instead of the screen. command > filename creates (or overwrites) that file with the output
    Don't guess the file type by renaming, run file first, it tells you exactly what it is, then use the matching command. Saves a lot of flailing
    To know if a command changes a file: general rule for compression tools is default=replace, -c=screen only, -k=keep original. When unsure: read --help, or ls       before and after to see what changed, or cp the file first to stay safe
-   
+ Day 3 Commands I learned
+   Used -i command in SSH to log in, like this: ssh -i keyfile, ssh -i keyfile user@server -p port
+   While using it, I encountered a problem my local txt file which had the key was not the correct format. All I had to do was add a newline after the ssh key.
+   The newline problem got me stuck for several minutes, felt good finding the answer to my problem!
+   Used cat /etc/bandit_pass/bandit14 to read a password file, at first I thought it was a folder, after many errors I used cat because it was a file.
+   used netcat + localhost + port to connect to a port inside the localhost
+   IP=building/port=apartment
+   localhost = 127.0.0.1 = this same computer
    
    
   
