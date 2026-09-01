@@ -43,6 +43,17 @@
    used netcat + localhost + port to connect to a port inside the localhost
    IP=building/port=apartment
    localhost = 127.0.0.1 = this same computer
-   
+ Day 4 Commands I learned
+   openssl: its a big toolkit for anything related to encryption and secure connections
+            s_client is a tool inside it, for which i used to connect to a server using ssl/tls
+            the full command i wrote was openssl s_client -connect host:port
+   compared to nc, openssl s_client is a secure and encrypted connection
+
+   used nmap -p RANGE host to find the ports which are open
+   Testing each open port with openssl s_client -connect host:port, some errored immediatelly, and some responded with ssl handshakes
+   the ssl ones gave KEYUPDATE at the end with no message, so i searched to find the issue.
+   The issue was openssl s_client interprets certain letters (like k/K) typed during the session as commands (KeyUpdate) instead of plain data so a password-
+   -containing that letter gets misread -ign_eof stops that interpretation sending everything as plain data.
+   level 16→17 handed me an encrypted key again, so i used ssh -i filename again to log in
    
   
