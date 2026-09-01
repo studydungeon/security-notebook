@@ -53,7 +53,11 @@
    Testing each open port with openssl s_client -connect host:port, some errored immediatelly, and some responded with ssl handshakes
    the ssl ones gave KEYUPDATE at the end with no message, so i searched to find the issue.
    The issue was openssl s_client interprets certain letters (like k/K) typed during the session as commands (KeyUpdate) instead of plain data so a password-
-   -containing that letter gets misread -ign_eof stops that interpretation sending everything as plain data.
-   level 16→17 handed me an encrypted key again, so i used ssh -i filename again to log in
+   -containing that letter gets misread. -ign_eof stops that interpretation sending everything as plain data.
+   level 16-17 handed me an encrypted key again, so i used ssh -i filename again to log in
+   used diff to see what changed between two files
+   at the next level there was a modification in .bashsrc to log me out whenever I log in, so I used <ssh -t user@host -p PORT "bash --norc --noprofile"> to create 
+   - an interactive terminal with starting bash directly skipping both startup config files (--norc, --noprofile) so nothing in those files get a chance to run.
+   
    
   
